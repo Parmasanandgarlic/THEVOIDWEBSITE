@@ -125,7 +125,7 @@ export default function App() {
           <li><a href="#memes">Memes</a></li>
 
           <li>
-            <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/_TheVoidOnSol" target="_blank" rel="noopener noreferrer">
               <XIcon size={14} /> Twitter
             </a>
           </li>
@@ -154,7 +154,7 @@ export default function App() {
         <a href="#about" onClick={() => setMobileMenuOpen(false)}>The Abyss</a>
         <a href="#memes" onClick={() => setMobileMenuOpen(false)}>Memes</a>
 
-        <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Twitter</a>
+        <a href="https://x.com/_TheVoidOnSol" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Twitter</a>
         <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Telegram</a>
         <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" className="nav-cta" style={{ textAlign: 'center', borderRadius: '4px' }} onClick={() => setMobileMenuOpen(false)}>Buy $VOID</a>
       </div>
@@ -277,7 +277,7 @@ export default function App() {
             </p>
 
             <div className="community-links">
-              <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer" className="community-card">
+              <a href="https://x.com/_TheVoidOnSol" target="_blank" rel="noopener noreferrer" className="community-card">
                 <div className="card-icon"><XIcon size={28} /></div>
                 <div className="card-label">Twitter / X</div>
               </a>
@@ -297,7 +297,7 @@ export default function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-links">
-          <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/_TheVoidOnSol" target="_blank" rel="noopener noreferrer">
             <XIcon size={14} /> Twitter
           </a>
           <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer">
