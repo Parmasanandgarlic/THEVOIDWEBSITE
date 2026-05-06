@@ -41,11 +41,12 @@ const VOID_QUOTES = [
 ];
 
 const MEME_IMAGES = [
-  { src: '/memes/void-cute.png', alt: 'The Void thinks ur really cute' },
+  { src: '/memes/void-cute.png', alt: 'pls dont be sad - The Void thinks ur rlly cute' },
   { src: '/memes/void-chillin.png', alt: 'Chillin in the void' },
-  { src: '/memes/void-staring.png', alt: 'Stop staring at me - The Void' },
-  { src: '/memes/void-thanks.png', alt: 'Thanks for being there, the void' },
-  { src: '/memes/void-babe.png', alt: 'You barely stared into the void today' },
+  { src: '/memes/void-staring.png', alt: 'Stop staring at me - Black hole' },
+  { src: '/memes/void-abyss.png', alt: 'Thank you for contacting the abyss' },
+  { src: '/memes/void-babe.jpg', alt: 'You ok babe? You barely stared into the void today' },
+  { src: '/memes/void-thanks.png', alt: 'Thanks for always being there for me, the void' },
 ];
 
 function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
