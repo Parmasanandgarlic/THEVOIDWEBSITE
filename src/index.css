@@ -764,23 +764,18 @@ body {
   filter: url(#tv-static);
   pointer-events: none;
   z-index: 3;
-  /* Use the title text as a mask so noise only shows within the letter shapes */
-  -webkit-mask-image: -webkit-linear-gradient(transparent, transparent);
-  mask-image: linear-gradient(transparent, transparent);
-  /* Fallback: just make it very subtle and let blend mode handle it */
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-  animation: static-flicker 2s steps(6) infinite;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  animation: static-flicker 1.5s steps(5) infinite;
 }
 
 @keyframes static-flicker {
-  0% { opacity: 0.04; }
-  16% { opacity: 0.08; }
-  33% { opacity: 0.05; }
-  50% { opacity: 0.1; }
-  66% { opacity: 0.04; }
-  83% { opacity: 0.07; }
-  100% { opacity: 0.04; }
+  0% { opacity: 0.3; }
+  20% { opacity: 0.4; }
+  40% { opacity: 0.25; }
+  60% { opacity: 0.45; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0.35; }
 }
 
 .glitch-text {
@@ -803,18 +798,18 @@ body {
 
 /* Red/pink chromatic channel — slow creepy drift */
 .glitch-text::before {
-  color: rgba(217, 70, 110, 0.4);
+  color: rgba(217, 70, 110, 0.5);
   animation: static-channel-1 3s ease-in-out infinite;
   mix-blend-mode: screen;
-  text-shadow: 0 0 4px rgba(217, 70, 110, 0.15);
+  text-shadow: 0 0 6px rgba(217, 70, 110, 0.2);
 }
 
 /* Cyan channel — slow offset drift */
 .glitch-text::after {
-  color: rgba(80, 180, 220, 0.25);
+  color: rgba(80, 180, 220, 0.35);
   animation: static-channel-2 4s ease-in-out infinite;
   mix-blend-mode: screen;
-  text-shadow: 0 0 4px rgba(80, 180, 220, 0.1);
+  text-shadow: 0 0 6px rgba(80, 180, 220, 0.15);
 }
 
 /* Channel 1: slow, eerie drift */

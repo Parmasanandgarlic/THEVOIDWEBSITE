@@ -158,11 +158,15 @@ export default function App() {
           >
             {/* SVG noise filter for TV static */}
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
-              <filter id="tv-static">
-                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="0" stitchTiles="stitch">
-                  <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
+              <filter id="tv-static" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" seed="0" stitchTiles="stitch" result="noise">
+                  <animate attributeName="seed" from="0" to="80" dur="1s" repeatCount="indefinite" />
                 </feTurbulence>
-                <feColorMatrix type="saturate" values="0" />
+                <feComponentTransfer in="noise" result="crispy">
+                  <feFuncR type="discrete" tableValues="0 0 0 1 1" />
+                  <feFuncG type="discrete" tableValues="0 0 0 1 1" />
+                  <feFuncB type="discrete" tableValues="0 0 0 1 1" />
+                </feComponentTransfer>
               </filter>
             </svg>
 
