@@ -105,7 +105,7 @@ export default function App() {
         <ul className="navbar-links">
           <li><a href="#about">The Abyss</a></li>
           <li><a href="#memes">Memes</a></li>
-          <li><a href="#roadmap">Roadmap</a></li>
+
           <li>
             <a href="https://x.com" target="_blank" rel="noopener noreferrer">
               <XIcon size={14} /> Twitter
@@ -135,7 +135,7 @@ export default function App() {
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         <a href="#about" onClick={() => setMobileMenuOpen(false)}>The Abyss</a>
         <a href="#memes" onClick={() => setMobileMenuOpen(false)}>Memes</a>
-        <a href="#roadmap" onClick={() => setMobileMenuOpen(false)}>Roadmap</a>
+
         <a href="https://x.com" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Twitter</a>
         <a href="https://t.me" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Telegram</a>
         <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" className="nav-cta" style={{ textAlign: 'center', borderRadius: '4px' }} onClick={() => setMobileMenuOpen(false)}>Buy $VOID</a>
@@ -238,61 +238,8 @@ export default function App() {
           </div>
         </section>
 
-        <div className="void-separator" />
 
-        {/* ===== ROADMAP ===== */}
-        <section id="roadmap" className="roadmap-section">
-          <AnimatedSection>
-            <div className="about-content">
-              <h2 className="section-title glow-text">The Descent</h2>
-              <p className="about-text">
-                There is no roadmap. Only the descent. But if you insist on structure within the formless...
-              </p>
-            </div>
-          </AnimatedSection>
 
-          <div className="roadmap-container" style={{ marginTop: '3rem' }}>
-            <div className="roadmap-line" />
-
-            <AnimatedSection delay={0.1}>
-              <div className="roadmap-item">
-                <div className="roadmap-dot" />
-                <div className="roadmap-phase">Phase I — The Awakening</div>
-                <div className="roadmap-title">The Void Appears</div>
-                <div className="roadmap-desc">
-                  Token launch on Pump.fun. Website goes live. The community discovers the void — or the void discovers them.
-                  Socials deployed. The darkness spreads.
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="roadmap-item">
-                <div className="roadmap-dot" />
-                <div className="roadmap-phase">Phase II — The Consumption</div>
-                <div className="roadmap-title">The Void Grows</div>
-                <div className="roadmap-desc">
-                  Community building. Meme warfare. Raid culture. The void absorbs new degens, new timelines, new realities.
-                  Partnerships with the darkness. CG/CMC listings.
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <div className="roadmap-item">
-                <div className="roadmap-dot" />
-                <div className="roadmap-phase">Phase III — The Singularity</div>
-                <div className="roadmap-title">The Void Consumes All</div>
-                <div className="roadmap-desc">
-                  CEX listings. Total void domination. The void becomes the market. The market becomes the void.
-                  There is no escape. There was never an escape. Only $VOID.
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        <div className="void-separator" />
 
         {/* ===== COMMUNITY ===== */}
         <section id="community" className="community-section">
