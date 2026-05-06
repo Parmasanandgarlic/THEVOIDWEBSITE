@@ -156,7 +156,7 @@ export default function App() {
             transition={{ duration: 0.8, type: 'spring', stiffness: 80, damping: 15 }}
             style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
-            {/* SVG noise filter for TV static */}
+            {/* SVG noise filter — composites static directly onto source text */}
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
               <filter id="tv-static" x="0%" y="0%" width="100%" height="100%">
                 <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" seed="0" stitchTiles="stitch" result="noise">
@@ -167,6 +167,7 @@ export default function App() {
                   <feFuncG type="discrete" tableValues="0 0 0 1 1" />
                   <feFuncB type="discrete" tableValues="0 0 0 1 1" />
                 </feComponentTransfer>
+                <feBlend in="SourceGraphic" in2="crispy" mode="multiply" result="static-text" />
               </filter>
             </svg>
 
@@ -174,7 +175,6 @@ export default function App() {
               <h1 className="hero-title glitch-text" data-text="THE VOID">
                 THE VOID
               </h1>
-              <div className="static-overlay" />
             </div>
             <p className="hero-subtitle">
               Stare into the abyss. The abyss stares back.<br />
