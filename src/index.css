@@ -324,7 +324,7 @@ body {
   position: relative;
   z-index: 2;
   text-shadow: none;
-  filter: url(#tv-static) drop-shadow(0 0 40px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.3));
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -747,6 +747,44 @@ body {
 }
 
 /* ===== CREEPY TV STATIC GLITCH ===== */
+
+.title-static-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Noise texture clipped to text letter shapes */
+.noise-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  animation: noise-shift 0.8s steps(6) infinite;
+}
+
+@keyframes noise-shift {
+  0% { background-position: 0 0; }
+  16% { background-position: -73px -41px; }
+  33% { background-position: 52px -87px; }
+  50% { background-position: -31px 63px; }
+  66% { background-position: 89px -19px; }
+  83% { background-position: -57px 47px; }
+  100% { background-position: 0 0; }
+}
 
 
 .glitch-text {

@@ -1,6 +1,6 @@
 import { Copy, ExternalLink, Send, Menu, X } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import './index.css';
 
 function XIcon({ size = 16 }: { size?: number }) {
@@ -69,6 +69,24 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
 export default function App() {
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Generate a static noise texture once
+  const noiseUrl = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 200;
+    canvas.height = 200;
+    const ctx = canvas.getContext('2d')!;
+    const imageData = ctx.createImageData(200, 200);
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      const v = Math.random() > 0.55 ? 255 : 0;
+      imageData.data[i] = v;
+      imageData.data[i + 1] = v;
+      imageData.data[i + 2] = v;
+      imageData.data[i + 3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+    return canvas.toDataURL();
+  }, []);
 
   const copyToClipboard = async () => {
     if (CONTRACT_ADDRESS === "COMING SOON") return;
@@ -156,25 +174,17 @@ export default function App() {
             transition={{ duration: 0.8, type: 'spring', stiffness: 80, damping: 15 }}
             style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
-            {/* SVG noise filter — composites static directly onto source text */}
-            <svg style={{ position: 'absolute', width: 0, height: 0 }}>
-              <filter id="tv-static" x="0%" y="0%" width="100%" height="100%">
-                <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" seed="0" stitchTiles="stitch" result="noise">
-                  <animate attributeName="seed" from="0" to="80" dur="1s" repeatCount="indefinite" />
-                </feTurbulence>
-                <feComponentTransfer in="noise" result="crispy">
-                  <feFuncR type="discrete" tableValues="0 0 0 1 1" />
-                  <feFuncG type="discrete" tableValues="0 0 0 1 1" />
-                  <feFuncB type="discrete" tableValues="0 0 0 1 1" />
-                </feComponentTransfer>
-                <feBlend in="SourceGraphic" in2="crispy" mode="multiply" result="static-text" />
-              </filter>
-            </svg>
-
             <div className="title-static-wrap">
               <h1 className="hero-title glitch-text" data-text="THE VOID">
                 THE VOID
               </h1>
+              <span
+                className="noise-text"
+                aria-hidden="true"
+                style={{ backgroundImage: `url(${noiseUrl})` }}
+              >
+                THE VOID
+              </span>
             </div>
             <p className="hero-subtitle">
               Stare into the abyss. The abyss stares back.<br />
