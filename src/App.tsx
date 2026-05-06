@@ -112,7 +112,7 @@ export default function App() {
             </a>
           </li>
           <li>
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer">
               <Send size={14} /> Telegram
             </a>
           </li>
@@ -137,7 +137,7 @@ export default function App() {
         <a href="#memes" onClick={() => setMobileMenuOpen(false)}>Memes</a>
 
         <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Twitter</a>
-        <a href="https://t.me" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Telegram</a>
+        <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Telegram</a>
         <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" className="nav-cta" style={{ textAlign: 'center', borderRadius: '4px' }} onClick={() => setMobileMenuOpen(false)}>Buy $VOID</a>
       </div>
 
@@ -254,7 +254,7 @@ export default function App() {
                 <div className="card-icon"><XIcon size={28} /></div>
                 <div className="card-label">Twitter / X</div>
               </a>
-              <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="community-card">
+              <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer" className="community-card">
                 <div className="card-icon"><Send size={28} /></div>
                 <div className="card-label">Telegram</div>
               </a>
@@ -273,7 +273,7 @@ export default function App() {
           <a href="https://x.com/thevoidonsol" target="_blank" rel="noopener noreferrer">
             <XIcon size={14} /> Twitter
           </a>
-          <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+          <a href="https://t.me/thevoidsolana" target="_blank" rel="noopener noreferrer">
             <Send size={14} /> Telegram
           </a>
           <a href="https://pump.fun" target="_blank" rel="noopener noreferrer">
