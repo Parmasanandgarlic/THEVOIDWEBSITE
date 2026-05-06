@@ -746,11 +746,13 @@ body {
   z-index: 0;
 }
 
-/* ===== GLITCH EFFECT ===== */
+/* ===== CREEPY TV STATIC GLITCH ===== */
 .glitch-text {
   position: relative;
+  animation: flicker 5s infinite;
 }
 
+/* Scanline overlay */
 .glitch-text::before,
 .glitch-text::after {
   content: attr(data-text);
@@ -760,38 +762,141 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  background: transparent;
 }
 
+/* Red/pink chromatic channel — jitters left */
 .glitch-text::before {
-  animation: glitch-1 3s infinite linear alternate-reverse;
-  color: var(--void-pink);
-  clip-path: inset(0 0 80% 0);
-  opacity: 0.8;
+  color: rgba(217, 70, 110, 0.7);
+  animation: static-channel-1 0.15s steps(2, jump-none) infinite;
+  mix-blend-mode: screen;
+  text-shadow: 0 0 8px rgba(217, 70, 110, 0.3);
 }
 
+/* Cyan/purple chromatic channel — jitters right */
 .glitch-text::after {
-  animation: glitch-2 2.5s infinite linear alternate-reverse;
-  color: var(--void-accent);
-  clip-path: inset(80% 0 0 0);
-  opacity: 0.8;
+  color: rgba(80, 180, 220, 0.5);
+  animation: static-channel-2 0.12s steps(3, jump-none) infinite;
+  mix-blend-mode: screen;
+  text-shadow: 0 0 8px rgba(80, 180, 220, 0.2);
 }
 
-@keyframes glitch-1 {
-  0% { transform: translateX(0); clip-path: inset(20% 0 70% 0); }
-  20% { transform: translateX(-3px); clip-path: inset(60% 0 10% 0); }
-  40% { transform: translateX(3px); clip-path: inset(40% 0 50% 0); }
-  60% { transform: translateX(-2px); clip-path: inset(80% 0 5% 0); }
-  80% { transform: translateX(2px); clip-path: inset(10% 0 70% 0); }
-  100% { transform: translateX(0); clip-path: inset(30% 0 20% 0); }
+/* Channel 1: rapid left-jitter with aggressive clip slicing */
+@keyframes static-channel-1 {
+  0% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(8% 0 85% 0);
+  }
+  10% {
+    transform: translate(2px, 0);
+    clip-path: inset(42% 0 33% 0);
+  }
+  20% {
+    transform: translate(-1px, -1px);
+    clip-path: inset(78% 0 5% 0);
+  }
+  30% {
+    transform: translate(4px, 1px);
+    clip-path: inset(15% 0 72% 0);
+  }
+  40% {
+    transform: translate(-2px, 0);
+    clip-path: inset(55% 0 22% 0);
+  }
+  50% {
+    transform: translate(1px, -1px);
+    clip-path: inset(90% 0 2% 0);
+  }
+  60% {
+    transform: translate(-4px, 1px);
+    clip-path: inset(3% 0 88% 0);
+  }
+  70% {
+    transform: translate(3px, 0);
+    clip-path: inset(62% 0 18% 0);
+  }
+  80% {
+    transform: translate(-1px, -1px);
+    clip-path: inset(30% 0 55% 0);
+  }
+  90% {
+    transform: translate(2px, 1px);
+    clip-path: inset(72% 0 12% 0);
+  }
+  100% {
+    transform: translate(-3px, 0);
+    clip-path: inset(48% 0 40% 0);
+  }
 }
 
-@keyframes glitch-2 {
-  0% { transform: translateX(0); clip-path: inset(10% 0 60% 0); }
-  20% { transform: translateX(2px); clip-path: inset(30% 0 20% 0); }
-  40% { transform: translateX(-2px); clip-path: inset(70% 0 10% 0); }
-  60% { transform: translateX(3px); clip-path: inset(20% 0 50% 0); }
-  80% { transform: translateX(-3px); clip-path: inset(50% 0 30% 0); }
-  100% { transform: translateX(0); clip-path: inset(5% 0 80% 0); }
+/* Channel 2: rapid right-jitter with different slice pattern */
+@keyframes static-channel-2 {
+  0% {
+    transform: translate(2px, -1px);
+    clip-path: inset(65% 0 20% 0);
+  }
+  10% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(12% 0 75% 0);
+  }
+  20% {
+    transform: translate(1px, 0);
+    clip-path: inset(88% 0 3% 0);
+  }
+  30% {
+    transform: translate(-2px, -1px);
+    clip-path: inset(35% 0 48% 0);
+  }
+  40% {
+    transform: translate(4px, 1px);
+    clip-path: inset(5% 0 82% 0);
+  }
+  50% {
+    transform: translate(-1px, 0);
+    clip-path: inset(52% 0 30% 0);
+  }
+  60% {
+    transform: translate(3px, -1px);
+    clip-path: inset(22% 0 60% 0);
+  }
+  70% {
+    transform: translate(-4px, 1px);
+    clip-path: inset(75% 0 10% 0);
+  }
+  80% {
+    transform: translate(2px, 0);
+    clip-path: inset(40% 0 42% 0);
+  }
+  90% {
+    transform: translate(-1px, -1px);
+    clip-path: inset(95% 0 1% 0);
+  }
+  100% {
+    transform: translate(3px, 1px);
+    clip-path: inset(18% 0 68% 0);
+  }
+}
+
+/* Irregular flicker — whole text randomly dims like a dying signal */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 1; }
+  4% { opacity: 0.6; }
+  5% { opacity: 1; }
+  18% { opacity: 1; }
+  19% { opacity: 0.4; }
+  19.5% { opacity: 1; }
+  42% { opacity: 1; }
+  43% { opacity: 0.8; }
+  43.5% { opacity: 0.2; }
+  44% { opacity: 1; }
+  67% { opacity: 1; }
+  68% { opacity: 0.7; }
+  68.5% { opacity: 1; }
+  85% { opacity: 1; }
+  86% { opacity: 0.5; }
+  86.5% { opacity: 0.9; }
+  87% { opacity: 1; }
 }
 
 /* ===== PULSING RING ===== */
