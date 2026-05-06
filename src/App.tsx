@@ -160,7 +160,7 @@ export default function App() {
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
               <filter id="tv-static">
                 <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="0" stitchTiles="stitch">
-                  <animate attributeName="seed" from="0" to="100" dur="0.5s" repeatCount="indefinite" />
+                  <animate attributeName="seed" from="0" to="100" dur="2s" repeatCount="indefinite" />
                 </feTurbulence>
                 <feColorMatrix type="saturate" values="0" />
               </filter>
