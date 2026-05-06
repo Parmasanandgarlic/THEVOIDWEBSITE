@@ -156,9 +156,22 @@ export default function App() {
             transition={{ duration: 0.8, type: 'spring', stiffness: 80, damping: 15 }}
             style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
-            <h1 className="hero-title glitch-text" data-text="THE VOID">
-              THE VOID
-            </h1>
+            {/* SVG noise filter for TV static */}
+            <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+              <filter id="tv-static">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="0" stitchTiles="stitch">
+                  <animate attributeName="seed" from="0" to="100" dur="0.5s" repeatCount="indefinite" />
+                </feTurbulence>
+                <feColorMatrix type="saturate" values="0" />
+              </filter>
+            </svg>
+
+            <div className="title-static-wrap">
+              <h1 className="hero-title glitch-text" data-text="THE VOID">
+                THE VOID
+              </h1>
+              <div className="static-overlay" />
+            </div>
             <p className="hero-subtitle">
               Stare into the abyss. The abyss stares back.<br />
               <span>$VOID</span> — the darkness on Solana that consumes all.

@@ -747,6 +747,36 @@ body {
 }
 
 /* ===== CREEPY TV STATIC GLITCH ===== */
+
+/* Wrapper for title + noise overlay */
+.title-static-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Animated noise speckles over the title */
+.static-overlay {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  filter: url(#tv-static);
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 3;
+  animation: static-flicker 0.3s steps(4) infinite;
+}
+
+@keyframes static-flicker {
+  0% { opacity: 0.1; }
+  25% { opacity: 0.15; }
+  50% { opacity: 0.08; }
+  75% { opacity: 0.18; }
+  100% { opacity: 0.1; }
+}
+
 .glitch-text {
   position: relative;
   animation: flicker 5s infinite;
